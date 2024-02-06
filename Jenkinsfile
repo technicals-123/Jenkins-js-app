@@ -3,14 +3,14 @@ pipeline {
    environment{
      SERVER_CREDENTIALS=credentials('server-credentials')
    }
-tools{
-    maven 'Maven'
-}
+// tools{
+//     maven 'Maven'
+// }
     stages {
         stage("build") {
             steps {
                echo 'building the application'
-               sh "mvn install"
+               // sh "mvn install"
             }
         }
         stage("test") {
