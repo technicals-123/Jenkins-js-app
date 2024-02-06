@@ -19,7 +19,7 @@ pipeline {
             steps {
                echo 'deploying the application'
                echo"credentials req to open ${SERVER_CREDENTIALS}"
-               sh "${SERVER_CREDENTIALS}"
+               // sh "${SERVER_CREDENTIALS}"
             }
         }
     }        
