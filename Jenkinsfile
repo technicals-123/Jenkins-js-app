@@ -18,6 +18,7 @@ pipeline {
         stage("deploy") {
             steps {
                echo 'deploying the application'
+               echo"credentials req to open ${SERVER_CREDENTIALS}"
             }
         }
     }        
