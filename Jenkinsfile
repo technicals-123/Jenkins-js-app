@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
    environment{
@@ -12,22 +13,36 @@ pipeline {
     }
 
     stages {
+        stage("init"){
+            script{
+                 gv=load "script.groovy"
+            }
+        }
         stage("build") {
             steps {
-               echo 'building the application'
-               // sh "mvn install"
+              script{
+                gv.buildApp()
+              }
+               // echo 'building the application'
+               // // sh "mvn install"
             }
         }
         stage("test") {
              steps {
-               echo 'testing the application'
+              script{
+                gv.testApp()
+              }
+               // echo 'testing the application'
             }
             
         }
         stage("deploy") {
             steps {
-               echo 'deploying the application'
-               echo"credentials req to open ${SERVER_CREDENTIALS}"
+              script{
+                 gv.deployApp()
+              }
+               // echo 'deploying the application'
+               // echo"credentials req to open ${SERVER_CREDENTIALS}"
                // sh "${SERVER_CREDENTIALS}"
             }
         }
